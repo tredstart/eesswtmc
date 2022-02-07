@@ -11,7 +11,11 @@ node_modules/
 
 # production
 /build
-
+.idea
+*__pycache__*
+db.sqlite
+db.sqlite3
+*migrations*
 # misc
 .DS_Store
 .env.local

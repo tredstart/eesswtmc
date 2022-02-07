@@ -20,17 +20,14 @@ const LoginScreen = () => {
   
   const loginHandler = async (e) => {
     e.preventDefault()
-
     const config = {
       header: {
-        "Content-Type": "applocation/json"
+        "Content-Type": "application/json"
       }
     }
 
     try {
       const {data} = await axios.post('/api/auth/login', {email, password}, config)
-
-      Cookies.set("authToken", data.token)
 
       history("/")
     } catch (error) {

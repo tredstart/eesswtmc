@@ -14,7 +14,7 @@ export const getUser = () => async (dispatch) => {
         };
 
         const {data} = await axios.get("/api/private", config)
-
+        console.log(data)
         dispatch({type: actionTypes.GET_USER_SUCCESS, payload: data.data})
         
     } catch (error) {
