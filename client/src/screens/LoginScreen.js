@@ -29,6 +29,8 @@ const LoginScreen = () => {
     try {
       const {data} = await axios.post('/api/auth/login', {email, password}, config)
 
+      Cookies.set("authToken", data.token)
+
       history("/")
     } catch (error) {
       console.log(error.response)

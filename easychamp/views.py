@@ -39,6 +39,8 @@ def set_tokens(request, user, response):
     )
     response.data = {"isSuccessful": True}
 
+    return data
+
 
 # class Register(View):
 #     template_name = "registration/register.html"
@@ -69,8 +71,8 @@ class Login(APIView):
         user = authenticate(username=body['email'], password=body['password'])
         if user is not None:
             if user.is_active:
-                set_tokens(request, user, response)
-                response.data = {"success": True}
+                tokens = set_tokens(request, user, response)
+                response.data = {"success": True, "token": tokens["authToken"]}
                 print(response.data)
                 print(response.cookies)
                 return response
