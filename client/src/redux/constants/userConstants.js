@@ -1,0 +1,4 @@
+export const GET_USER_REQUST = "GET_USER_REQUST"
+export const GET_USER_SUCCESS = "GET_USER_SUCCESS"
+export const GET_USER_FAIL = "GET_USER_FAIL"
+export const GET_USER_RESET = "GET_USER_RESET"
