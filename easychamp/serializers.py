@@ -6,6 +6,7 @@ from .models import *
 class EasyUserSerializer(serializers.Serializer):
     id = serializers.IntegerField(source="user.id")
     username = serializers.CharField(source="user.username")
+    email = serializers.CharField(source="user.email")
     password = serializers.CharField(source='user.password')
     firstName = serializers.CharField(source='user.first_name')
     lastName = serializers.CharField(source='user.last_name')

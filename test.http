@@ -1,0 +1,96 @@
+
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "super@coach.com",
+  "password1": "123123",
+  "password2": "123123",
+  "first_name": "super",
+  "last_name": "coach"
+}
+> {%
+    client.global.set("authToken", response.headers.valuesOf("Set-Cookie")[0]);
+%}
+###
+GET http://localhost:5000/api/roles
+Accept: application/json
+Cookie: {{authToken}}
+
+###
+
+POST http://localhost:5000/api/roles
+Content-Type: application/json
+Cookie: {{authToken}}
+
+{
+  "role": "CH"
+}
+###
+GET http://localhost:5000/api/sports/
+Accept: application/json
+Cookie: {{authToken}}
+
+###
+
+POST http://localhost:5000/api/sports/
+Content-Type: application/json
+Cookie: {{authToken}}
+
+{
+  "sport": "JD"
+}
+###
+POST http://localhost:5000/api/create-club
+Content-Type: application/json
+Cookie: {{authToken}}
+
+{
+  "sport": "JD",
+  "name": "Kano"
+}
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "sportsman@super.com",
+  "password1": "123123",
+  "password2": "123123",
+  "first_name": "Super",
+  "last_name": "Sportsman"
+}
+> {%
+    client.global.set("authToken", response.headers.valuesOf("Set-Cookie")[0]);
+%}
+###
+POST http://localhost:5000/api/roles
+Content-Type: application/json
+Cookie: {{authToken}}
+
+{
+  "role": "SP"
+}
+###
+POST http://localhost:5000/api/sports/
+Content-Type: application/json
+Cookie: {{authToken}}
+
+{
+  "sport": "JD"
+}
+###
+GET http://localhost:5000/api/pick-club?sport=JD
+Accept: application/json
+
+> {% client.global.set("club", response.body[0]["id"]) %}
+###
+POST http://localhost:5000/api/pick-club
+Accept: application/json
+Content-Type: application/json
+Cookie: {{authToken}}
+
+{
+  "id": {{club}}
+}
+###
