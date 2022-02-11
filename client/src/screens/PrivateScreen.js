@@ -18,7 +18,7 @@ const PrivateScreen = () => {
       <h1>Email: {userItem.email}</h1>
       <p>Id: {userItem.id}</p>
       <p>Role: {userItem.role}</p>
-      <p>Username: {userItem.usename}</p>
+      <p>Username: {userItem.username}</p>
     </>
   )
 };

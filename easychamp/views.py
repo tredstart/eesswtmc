@@ -153,8 +153,8 @@ class Private(APIView):
             "data": {
                 "id": user.id,
                 "role": role,
-                "usename": user.username,
-                "email": user.last_name
+                "username": user.username,
+                "email": user.email
             }
 
         }

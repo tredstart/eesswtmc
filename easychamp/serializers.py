@@ -19,6 +19,12 @@ class UsersSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password')
 
 
+def get_sport(signature):
+    for sport in Sport.SPORTS:
+        if sport[0] == signature:
+            return sport[1]
+
+
 class SportsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sport

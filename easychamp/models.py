@@ -14,7 +14,8 @@ class EasyChampUser(models.Model):
 
 class Sport(models.Model):
     SPORTS = [('JD', 'Judo'), ('MM', 'MMA'), ('BX', 'Box')]
-    name = models.CharField(max_length=2, choices=SPORTS, null=False, blank=False, default=None)
+    nameId = models.CharField(max_length=2, choices=SPORTS, null=False, blank=False, default=None)
+    name = models.CharField(max_length=50, default=None)
 
 
 class Clubs(models.Model):
@@ -25,7 +26,7 @@ class Clubs(models.Model):
 try:
     if not Sport.objects.all():
         for s in Sport.SPORTS:
-            sport = Sport(name=s[0])
+            sport = Sport(name=s[1], nameId=s[0])
             sport.save()
 except django.db.utils.OperationalError:
     print("waiting for the connection...")
