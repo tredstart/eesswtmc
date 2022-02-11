@@ -1,14 +1,15 @@
-.loginscreen {
+.registerscreen {
     width: 100%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 10vh;
+    margin-bottom: 40px;
 }
 
-.loginscreen__form {
-    width: 430px;
+.registerscreen__form {
+    width: 500px;
     padding: 40px;
     background-color: #393E46;
     border-radius: 7.5px;
@@ -18,7 +19,7 @@
     justify-content: space-between;
 }
 
-.loginscreen__title {
+.registerscreen__title {
     text-align: center;
     font-size: 2rem;
     color: #00ADB5;
@@ -58,8 +59,54 @@
     color: #eee;
 }
 
-.form__group input:focus {
+.form__group-radio {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.form__group-radio label {
+    color: #EEEEEE;
+    cursor: pointer;
+    border: 1px solid #00ADB5;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+}
+
+.form__group-radio input {
+    display: none;
+}
+
+.form__group-radio input:checked + label {
+    background-color: #00ADB5;
+}
+
+.form__block {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form__select {
+    height: 44px;
     background: none;
+    border: none;
+    border-bottom: 1.5px solid #EEEEEE;
+    color: #EEEEEE;
+    padding-left: 10px;
+}
+
+.form__select option:nth-child(1) {
+    color: rgb(133, 133, 133);
+}
+
+.form__select option {
+    background: #393E46;
 }
 
 .form__button {
@@ -74,11 +121,7 @@
     background-color: #00ADB5;
     cursor: pointer;
     border-radius: 5px;
-}
-
-.form__span {
-    color: #EEEEEE;
-    text-align: left;
+    margin: 20px;
 }
 
 .form__span > a {

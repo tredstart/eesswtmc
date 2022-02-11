@@ -14,12 +14,12 @@ export const getUser = () => async (dispatch) => {
         };
 
         const {data} = await axios.get("/api/private", config)
-        console.log(data)
+        
         dispatch({type: actionTypes.GET_USER_SUCCESS, payload: data.data})
         
     } catch (error) {
         dispatch({
-            type: actionTypes.GET_USER_FAIL, 
+            type: actionTypes.GET_USER_FAIL,
             payload: error.response && error.response.data.error
                 ? error.response.data.error
                 : error.message

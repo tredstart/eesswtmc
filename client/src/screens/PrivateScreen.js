@@ -15,7 +15,10 @@ const PrivateScreen = () => {
 
   return (
     loading ? <span>Loading...</span> : error ? <span>{error}</span> : <>
-      <h1>{userItem.role}</h1>
+      <h1>Email: {userItem.email}</h1>
+      <p>Id: {userItem.id}</p>
+      <p>Role: {userItem.role}</p>
+      <p>Username: {userItem.usename}</p>
     </>
   )
 };

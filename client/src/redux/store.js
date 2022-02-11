@@ -4,9 +4,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 // Reducers
 import {userReducer} from './reducers/userReducer'
+import {clubsReducer} from './reducers/clubsReducer'
+import {sportsReducer} from './reducers/sportsReducer'
 
 const reducer = combineReducers({
-    user: userReducer
+    user: userReducer,
+    clubs: clubsReducer,
+    sports: sportsReducer
 })
 
 const middleware = [thunk]

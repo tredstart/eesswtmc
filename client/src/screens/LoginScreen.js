@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 import './LoginScreen.css'
 import Cookies from 'js-cookie';
@@ -34,7 +34,7 @@ const LoginScreen = () => {
       history("/")
     } catch (error) {
       console.log(error.response)
-      setError(error.response.data.error)
+      setError(error.response.data.Invalid)
       setTimeout(() => {
         setError("")
       }, 5000)
@@ -58,6 +58,9 @@ const LoginScreen = () => {
           </div>
 
           <button type="submit" className="form__button">Login</button>
+
+          <span className='form__span'>Don't have an account? <Link to="/register">Register</Link></span>
+
         </form>
       </div>
   );

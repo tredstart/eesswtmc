@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 // Screens
 import LoginScreen from "./screens/LoginScreen";
 import PrivateScreen from "./screens/PrivateScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             <Route exact path="/" element={<PrivateScreen />} />
           </Route>
           <Route exact path="/login" element={<LoginScreen />} />
+          <Route exact path="/register" element={<RegisterScreen />} />
         </Routes>
       </main>
     </Router>
