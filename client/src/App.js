@@ -8,18 +8,18 @@ import Navbar from "./components/Navbar";
 
 // Screens
 import LoginScreen from "./screens/LoginScreen";
-import PrivateScreen from "./screens/PrivateScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
     <Router>
       <Navbar />
 
-      <main>
+      <main className="app">
         <Routes>
           <Route exact path="/" element={<PrivateRoute />}>
-            <Route exact path="/" element={<PrivateScreen />} />
+            <Route exact path="/" element={<Sidebar />} />
           </Route>
           <Route exact path="/login" element={<LoginScreen />} />
           <Route exact path="/register" element={<RegisterScreen />} />

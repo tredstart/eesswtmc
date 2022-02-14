@@ -1,3 +1,12 @@
+:root {
+    --color1: #FFFFFF;
+    --color1-op: #EFEFEF;
+    --color2: #3A7E73;
+    --color2-op: rgba(58, 126, 115, 0.5);
+    --color3: #2D2C2C;
+    --color3-op: rgba(45, 44, 44, 0.5);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +16,16 @@
     list-style: none;
     text-decoration: none;
 }
+
 body {
-    background-color: #222831;
+    background-color: var(--color2);
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
