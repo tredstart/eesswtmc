@@ -9,6 +9,7 @@ import "./RegisterScreen.css";
 // ACTIONS
 import { getSports } from "../redux/actions/sportsAction"
 import { getClubs, resetClubs } from "../redux/actions/clubsActions";
+import SportInput from "../components/SportInput";
 
 
 const RegisterScreen = () => {
@@ -40,7 +41,6 @@ const RegisterScreen = () => {
   const [club, setClub] = useState("")
   const [clubName, setClubName] = useState("")
 
-
   useEffect(() => {
 
     if (Cookies.get("authToken")) {
@@ -48,17 +48,17 @@ const RegisterScreen = () => {
     }
 
     dispatch(getSports())
-
-    if(sport) {
-      dispatch(getClubs(sport))
-    } else {
-      dispatch(resetClubs())
-    }
-
+    
     if(ref.current !== role) {
       setSport("")
       setClub("")
       setClubName("")
+    } else {
+      if(sport && role === 'SP') {
+        dispatch(getClubs(sport))
+      } else if(!sport) {
+        dispatch(resetClubs())
+      }
     }
 
     ref.current = role
@@ -215,31 +215,28 @@ const RegisterScreen = () => {
 };
 
 const SportsmanView = ({
-  sport, 
-  setSport, 
+  sport,
+  setSport,
   club,
   setClub,
   setError,
-  sportsAction: {loading, sportsItem, error},
-  clubsAction: {clubsLoading, clubsItem, clubsError}
+  sportsAction,
+  clubsAction: {loading, clubsItem, error}
 }) => {
   return (
     <>
-      <div className="form__group">
-        <label htmlFor='sport'>Sport:</label>
-        <select required className="form__select" value={sport} name="sportType" onChange={(e) => setSport(e.target.value)}>
-          <option value="">Choose sport...</option>
-          {loading ? null : error ? setError(error) : sportsItem.map(sport => (
-            <option key={sport.id} value={sport.name}>{sport.name}</option>
-          ))}
-        </select>
-      </div>
+      <SportInput
+        sport={sport}
+        setSport={setSport}
+        setError={setError}
+        sportsAction={sportsAction}
+      />
 
       <div className="form__group">
         <label htmlFor='club'>Club:</label>
         <select required className="form__select" value={club} name="club" onChange={(e) => setClub(e.target.value)}>
           <option value="">Choose club...</option>
-          {clubsLoading ? null : clubsError ? setError(clubsError) : clubsItem.map(club => (
+          {loading ? null : error ? setError(error) : clubsItem.map(club => (
             <option key={club.id} value={club.id}>{club.name}</option>
           ))}
         </select>
@@ -254,19 +251,16 @@ const CoachView = ({
   setError,
   clubName,
   setClubName,
-  sportsAction: {loading, sportsItem, error}
+  sportsAction,
 }) => {
   return (
     <>
-      <div className="form__group">
-        <label htmlFor='sport'>Sport:</label>
-        <select required className="form__select" value={sport} name="sportType" onChange={(e) => setSport(e.target.value)}>
-          <option value="">Choose sport...</option>
-          {loading ? null : error ? setError(error) : sportsItem.map(sport => (
-            <option key={sport.id} value={sport.name}>{sport.name}</option>
-          ))}
-        </select>
-      </div>
+      <SportInput
+        sport={sport}
+        setSport={setSport}
+        setError={setError}
+        sportsAction={sportsAction} 
+      />
 
       <div className="form__group">
         <label htmlFor='clubName'>Club name:</label>
@@ -280,19 +274,16 @@ const OrganizerView = ({
   sport,
   setSport, 
   setError,
-  sportsAction: {loading, sportsItem, error}
+  sportsAction,
 }) => {
   return (
     <>
-      <div className="form__group">
-        <label htmlFor='sport'>Sport:</label>
-        <select required className="form__select" value={sport} name="sportType" onChange={(e) => setSport(e.target.value)}>
-          <option value="">Choose sport...</option>
-          {loading ? null : error ? setError(error) : sportsItem.map(sport => (
-            <option key={sport.id} value={sport.name}>{sport.name}</option>
-          ))}
-        </select>
-      </div>
+      <SportInput
+        sport={sport}
+        setSport={setSport}
+        setError={setError}
+        sportsAction={sportsAction} 
+      />
     </>
   )
 }
@@ -301,19 +292,16 @@ const JudgeView = ({
   sport,
   setSport, 
   setError,
-  sportsAction: {loading, sportsItem, error}
+  sportsAction,
 }) => {
   return (
     <>
-      <div className="form__group">
-        <label htmlFor='sport'>Sport:</label>
-        <select required className="form__select" value={sport} name="sportType" onChange={(e) => setSport(e.target.value)}>
-          <option value="">Choose sport...</option>
-          {loading ? null : error ? setError(error) : sportsItem.map(sport => (
-            <option key={sport.id} value={sport.name}>{sport.name}</option>
-          ))}
-        </select>
-      </div>
+      <SportInput
+        sport={sport}
+        setSport={setSport}
+        setError={setError}
+        sportsAction={sportsAction} 
+      />
     </>
   )
 }

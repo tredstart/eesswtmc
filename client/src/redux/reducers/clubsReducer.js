@@ -4,19 +4,19 @@ export const clubsReducer = (state = {clubsItem: []}, action) => {
     switch (action.type) {
         case actionTypes.GET_CLUBS_REQUST:
             return {
-                clubsLoading: true
+                loading: true
             }
 
         case actionTypes.GET_CLUBS_SUCCESS:
             return {
-                clubsLoading: false,
+                loading: false,
                 clubsItem: action.payload
             }
 
         case actionTypes.GET_CLUBS_FAIL:
             return {
-                clubsLoading: false,
-                clubsError: action.payload
+                loading: false,
+                error: action.payload
             }
 
         case actionTypes.GET_CLUBS_RESET:
