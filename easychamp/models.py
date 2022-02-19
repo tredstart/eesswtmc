@@ -19,7 +19,7 @@ class Sport(models.Model):
 
 
 class Clubs(models.Model):
-    sport = models.OneToOneField(Sport, on_delete=models.CASCADE)
+    sport = models.ForeignKey(Sport, on_delete=models.CASCADE, unique=False)
     name = models.CharField(max_length=50, null=False, blank=False, default=None)
 
 
