@@ -1,0 +1,20 @@
+.errorscreen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.errorscreen h2 {
+    color: var(--color3);
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.errorscreen a {
+    font-size: 25px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: underline;
+}

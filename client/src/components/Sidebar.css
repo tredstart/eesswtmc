@@ -1,6 +1,6 @@
 .sidebar {
     width: auto;
-    height: 94%;
+    height: 94vh;
     background-color: var(--color1-op);
     z-index: 100;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
