@@ -21,11 +21,6 @@ body {
     background-color: var(--color2);
 }
 
-.app {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    position: relative;
+body::-webkit-scrollbar {
+    display: none;
 }

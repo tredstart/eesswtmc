@@ -1,11 +1,9 @@
 .registerscreen {
     width: 100%;
-    height: 100vh;
-    overflow-y: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 32.5%;
+    padding-top: 150px;
     padding-bottom: 50px;
 }
 
@@ -15,6 +13,7 @@
 
 .registerscreen__form {
     width: 525px;
+    height: auto;
     padding: 40px;
     background-color: var(--color1);
     border-radius: 7.5px;
