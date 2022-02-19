@@ -9,8 +9,8 @@ import Navbar from "./components/Navbar";
 // Screens
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
-import Sidebar from "./components/Sidebar";
 import ErrorScreen from "./screens/ErrorScreen";
+import ContentScreen from "./screens/ContentScreen";
 
 const App = () => {
   return (
@@ -18,8 +18,8 @@ const App = () => {
       <main className="app">
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<PrivateRoute />}>
-            <Route exact path="/" element={<Sidebar />} />
+          <Route path="/" element={<PrivateRoute />}>
+            <Route path="/" element={<ContentScreen />} />
           </Route>
           <Route exact path="/login" element={<LoginScreen />} />
           <Route exact path="/register" element={<RegisterScreen />} />
