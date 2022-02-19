@@ -137,13 +137,7 @@ def get_user_role(user):
 class Private(APIView):
 
     def get(self, request, *args, **kwargs):
-        token = None
-        if request.headers["authorization"] and "Bearer" in request.headers["authorization"]:
-            token = request.headers["authorization"].split()[1]
-        if not token:
-            return Response({"detail": "Ви не маєте доступу по цьому маршруту"}, status=status.HTTP_401_UNAUTHORIZED)
-        decoded = jwt.decode(token, settings.SIMPLE_JWT["SIGNING_KEY"], settings.SIMPLE_JWT["ALGORITHM"])
-        user = User.objects.get(pk=decoded["user_id"])
+        user = get_user_from_token(request)
         if not user:
             return Response({"detail": "No user"}, status=status.HTTP_404_NOT_FOUND)
         response = Response()
@@ -187,7 +181,7 @@ class CreateClub(APIView):
             return Response({"detail": "No user"}, status=status.HTTP_404_NOT_FOUND)
         body = json.loads(request.body)
         response = Response()
-        sport = Sport.objects.get(name=body['sport'])
+        sport = Sport.objects.get(nameId=body['sport'])
         club = Clubs(name=body['name'], sport=sport)
         club.save()
         euser = EasyChampUser.objects.get(user=user)
@@ -202,7 +196,8 @@ class CreateClub(APIView):
 class PickClub(APIView):
     def get(self, request, *args, **kwargs):
         sport_name = request.GET['sport']
-        sport = Sport.objects.get(name=sport_name)
+        print(sport_name)
+        sport = Sport.objects.get(nameId=sport_name)
         queryset = Clubs.objects.filter(sport=sport)
         clubs = []
         for club in queryset:
