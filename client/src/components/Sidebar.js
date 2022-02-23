@@ -5,7 +5,7 @@ import './Sidebar.css'
 
 // ACTIONS
 import { getUser, removeUser } from '../redux/actions/userActions'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
@@ -40,6 +40,33 @@ const Sidebar = () => {
                     </div>
                 </div>
             }
+
+            <ul className='sidebar__menu'>
+                <li className='menu__item'>
+                    <div className='menu__item-icon'></div>
+                    <Link to="/" className='menu__item-text'>Головна</Link>
+                </li>
+                
+                <li className='menu__item'>
+                    <div className='menu__item-icon'></div>
+                    <Link to="#" className='menu__item-text'>Пункт меню</Link>
+                </li>
+
+                <li className='menu__item'>
+                    <div className='menu__item-icon'></div>
+                    <Link to="#" className='menu__item-text'>Пункт меню</Link>
+                </li>
+
+                <li className='menu__item'>
+                    <div className='menu__item-icon'></div>
+                    <Link to="#" className='menu__item-text'>Пункт меню</Link>
+                </li>
+
+                <li className='menu__item'>
+                    <div className='menu__item-icon'></div>
+                    <Link to="#" className='menu__item-text'>Пункт меню</Link>
+                </li>
+            </ul>
 
             {isAuth ? (
                 <button onClick={logoutHandler} className="sidebar__button">

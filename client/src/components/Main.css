@@ -1,0 +1,100 @@
+.mainscomponent__category {
+    width: 100%;
+    height: 427px;
+    margin-bottom: 83px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.category__info {
+    position: absolute;
+    width: 100%;
+    height: 340px;
+    background: var(--color1);
+    border-radius: 20px;
+    padding: 18px 26px 0 26px;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.category__infoBlock {
+    width: 100%;
+    height: 40px;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.category__info-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 44px;
+    color: var(--color3);
+}
+
+.category__info-link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 29px;
+    text-decoration-line: underline;
+    color: var(--color3);
+}
+
+.category__content {
+    width: 95%;
+    height: 345px;
+    margin-top: auto;
+    overflow-x: auto;
+    z-index: 20;
+}
+
+.category__content::-webkit-scrollbar {
+    background-color: var(--color3);
+    border-radius: 10px;
+    height: 10px;
+}
+
+.category__content::-webkit-scrollbar-thumb {
+    background-color: var(--color1);
+    border-radius: 10px;
+}
+
+.category__content-scrollbar {
+    width: 200%;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 27px;
+}
+
+.category__content-item {
+    background-color: var(--color3);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.category__content-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 29px;
+    color: var(--color1);
+}
+
+.category__content-date {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--color1);
+}

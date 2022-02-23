@@ -3,7 +3,7 @@
     height: 100vh;
     z-index: 100;
     display: grid;
-    grid-template-columns: auto 75%;
+    grid-template-columns: 28% 72%;
     grid-template-rows: 7.5% 92.5%;
     padding: 30px 99px 30px 39px;
 }
@@ -19,6 +19,7 @@
 .contentscreen__button {
     display: flex;
     align-items: center;
+    padding-left: 45px;
 }
 
 .contentscreen__button a {
@@ -38,7 +39,9 @@
 }
 
 .contentscreen__content {
-    background-color: var(--color1-op);
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
+    overflow: auto;
+}
+
+.contentscreen__content::-webkit-scrollbar {
+    display: none;
 }
